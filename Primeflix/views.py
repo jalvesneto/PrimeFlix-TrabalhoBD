@@ -7,3 +7,6 @@ def home(request):
 
 def telaCadastrar(request):
     return render(request, "telacadastro.html")
+
+def main(request):
+    return render(request, "main.html")
