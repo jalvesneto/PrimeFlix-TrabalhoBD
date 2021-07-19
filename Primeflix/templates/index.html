@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>PrimeFlix Plus</title>
+    {% load static %}
+    <link href="{% static 'style.css' %}" rel="stylesheet" type="text/css" />
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;400&display=swap" rel="stylesheet">
+  </head>
+  <body>
+    <div class = "container1" id = "Topo">
+      <h1 id="Titulo"> PrimeFlix Plus </h1>
+     </div>
+    <script src="script.js"></script>
+    <main>
+   <div class="form-wrapper" id="text-field">
+        <h2>Entrar</h2>
+            <input type="text" id="usuario" name="usuario" placeholder="Usuário">
+            <input type="password" id="password" name="password" placeholder="Senha">
+            <a href="main.html"><button onclick="login()"> Login </button></a>
+            <h4> Não tem um usuário?  
+              <a href="telaCadastro.html">Cadastre-se!</a></h4>
+    </main>
+    <footer>
+            <h3>org nos mesmo</h3>
+      
+    </footer>
+  </body>
+</html>
