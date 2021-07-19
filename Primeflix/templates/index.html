@@ -1,13 +1,14 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html>
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width">
     <title>PrimeFlix Plus</title>
+    <title>PrimeFlix Plus</title>
     {% load static %}
     <link href="{% static 'style.css' %}" rel="stylesheet" type="text/css" />
     <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;400&display=swap" rel="stylesheet">
   </head>
   <body>
     <div class = "container1" id = "Topo">
@@ -18,14 +19,13 @@
    <div class="form-wrapper" id="text-field">
         <h2>Entrar</h2>
             <input type="text" id="usuario" name="usuario" placeholder="Usuário">
-            <input type="password" id="password" name="password" placeholder="Senha">
-            <a href="main.html"><button onclick="login()"> Login </button></a>
+            <input type="password" id="senha" name="senha" placeholder="Senha">
+           <button onclick="login()"> Login </button>
             <h4> Não tem um usuário?  
-              <a href="telaCadastro.html">Cadastre-se!</a></h4>
+              <a href="/telaCadastro">Cadastre-se!</a></h4>
     </main>
     <footer>
-            <h3>org nos mesmo</h3>
-      
+        <h3>Authors: JoseAlves - MatheusSouza - MisaelLima</h3>
     </footer>
   </body>
 </html>

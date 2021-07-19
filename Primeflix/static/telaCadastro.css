@@ -5,7 +5,7 @@
 }
 
 body {
-  background: url('imagens/bgimage2.jpg') no-repeat 50%;  
+  background: url("images/bgimage2.jpg") 50% 50%;  
 }
 
 #Titulo{
@@ -21,10 +21,10 @@ body {
   height: 200px;
   background-color: rgba(0, 0, 0, 0.664);
   padding: 50px 0px 80px 0px;
-  //margin: 0px 580px 0px 580px;
+  /* //margin: 0px 580px 0px 580px; */
   margin: auto;
-  //width: 40%;
-  //border: 20px,20px,20px,20px
+  /* //width: 40%;
+  //border: 20px,20px,20px,20px */
 }
 
 .form-wrapper input {

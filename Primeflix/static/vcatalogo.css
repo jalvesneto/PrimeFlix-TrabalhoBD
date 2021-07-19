@@ -10,7 +10,7 @@ a:link
   } 
 
 body {
-  background: url('imagens/bgimage2.jpg') no-repeat 50%;  
+  background: url("images/bgimage2.jpg") 50% 50%;  
 }
 
 #Titulo{
