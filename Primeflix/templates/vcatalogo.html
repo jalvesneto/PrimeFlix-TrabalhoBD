@@ -1,5 +1,4 @@
 <html>
-
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width">
@@ -15,9 +14,9 @@
       </h1>
       <div id="Menu">
         <h4 id = "Sair"> Usuário 
-          <a href="index.html">Sair</a></h4>
+          <a href="login">Sair</a></h4>
         </div>
-    </div>   
+    </div>  
     <script src="script.js"></script>
    <main>
      <table class="table">
@@ -26,6 +25,7 @@
             <th>Nome</th>
             <th>Ano de Lançamento</th>
             <th>Ações</th>
+            <th>Ações</th>
         </tr>
        </thead>
        <body>
@@ -33,18 +33,16 @@
           <tr>
             <th>{{dbs.titulo}}</th>
             <th>{{dbs.ano}}</th>
-            <th>{{dbs.tipo}}</th>
-            <th><a class="button" href="/delete/{{dbs.idtitulo}}">Delete</a></th>
-            <th><a class="button" href="/view/{{dbs.idtitulo}}">View</a></th>
+            <th><a href="/delete/{{dbs.idtitulo}}" ><button id="B1" onclick="" style="width:80"> Deletar </button></a></th>
+            <th><a href="/view/{{dbs.idtitulo}}"><button id="B1" onclick="" style="width:80"> Visualizar </button></a></th>
           </tr>
-          {% endfor %}
-          
+          {% endfor %}   
        </body>
      </table>
    </main>
-   <a class="button" href="/main">Voltar</a>
+   <a href="/main"><button id="B1" onclick="" style="width:80; margin-top:20px;"> Voltar </button></a>
     <footer>
-
+      <h3>Authors: JoseAlves - MatheusSouza - MisaelLima</h3> 
     </footer>
   </body>
 </html>

@@ -1,49 +1,84 @@
 *{
-    font-family: 'Roboto', sans-serif;
-    padding: 0;
-    margin: 0;
+  font-family: 'Roboto', sans-serif;
+  padding: 0;
+  margin: 0;
 }
 
 a:link 
-  { 
-  text-decoration:none; 
-  } 
+{ 
+text-decoration:none; 
+} 
 
 body {
-  background: url("images/bgimage2.jpg") 50% 50%;  
+background: url("images/bgimage2.jpg") 50% 50%;
 }
 
 #Titulo{
-  clear: both;
-  text-align: center;
-  text-shadow: 2px 2px #020202d2;
-  color: rgba(219, 11, 11, 0.884);
-  padding: 10px 0px 30px 0px;
-  margin: 10px 0px 0px 0px;
-  
+clear: both;
+text-align: center;
+text-shadow: 2px 2px #020202d2;
+color: rgba(219, 11, 11, 0.884);
+padding: 10px 0px 30px 0px;
+margin: 10px 0px 0px 0px;
 }
 
 #Menu{
-  width: 100px;
-  position: absolute;    
-  top: 10px;
-  right:10px; 
+width: 100px;
+position: absolute;    
+top: 10px;
+right:10px; 
 }
 
 #Sair{
-  text-align: center;
-  text-shadow: 1px 1px #020202d2;
-  color: rgba(219, 11, 11, 0.884);
-  margin-bottom: 20px
+text-align: center;
+text-shadow: 1px 1px #020202d2;
+color: rgba(219, 11, 11, 0.884);
+margin-bottom: 20px
 }
 
-#Menu a{
-  color:  rgb(0, 26, 255);
+table{
+  /* display: block; */
+  background-color: white;
+  text-align: center;
+  border-collapse: collapse;
+  border: solid 2px black; 
+  margin-top: 20px; 
+}
+
+th{
+  padding: 10px;
+  border: solid 2px black; 
+  width:20px;
+  height:20px;
+}
+
+button{
+  text-align: center;
+  color: white;
+  text-decoration: none;
+  background-color: red; 
+  margin: 0px auto;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+footer{
+  clear: both ;
+  text-align: center;
+  text-shadow: 2px 2px #020202d2;
+  color: red;
+  height: 50px;
+  padding: 10px 20px 20px 20px;
+  position: block;
+  margin-top: 150px;
+}
+
+a{
+color:  rgb(0, 26, 255);
 }
 
 .container1{
-    width: auto;
-    padding: 0px 20px 20px 40px;
-    height: 110px;
+  width: auto;
+  padding: 0px 20px 20px 40px;
+  height: 50px;
 }
-
