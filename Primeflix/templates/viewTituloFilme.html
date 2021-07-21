@@ -24,25 +24,21 @@
        <thead>
          <tr>
             <th>Nome</th>
-            <th>Ano de Lançamento</th>
-            <th>Ações</th>
+            <th>Data de Lançamento</th>
+            <th>Sinopse</th>
         </tr>
        </thead>
        <body>
-          {% for dbs in db %}
+          
           <tr>
-            <th>{{dbs.titulo}}</th>
-            <th>{{dbs.ano}}</th>
-            <th>{{dbs.tipo}}</th>
-            <th><a class="button" href="/delete/{{dbs.idtitulo}}">Delete</a></th>
-            <th><a class="button" href="/view/{{dbs.idtitulo}}">View</a></th>
+            <th>{{dbtitulo.titulo}}</th>
+            <th>{{dbfilme.datalancamento}}</th>
+            <th>{{dbtitulo.sinopse}}</th>
           </tr>
-          {% endfor %}
           
        </body>
      </table>
    </main>
-   <a class="button" href="/main">Voltar</a>
     <footer>
 
     </footer>

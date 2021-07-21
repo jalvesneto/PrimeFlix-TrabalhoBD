@@ -20,32 +20,32 @@
     </div> 
     <script src="script.js"></script>
     <main>
-      <form method="POST" enctype="multipart/form-data"  > 
-        {% csrf_token %}
+      <!-- <form method="POST" enctype="multipart/form-data"  > 
+        {% csrf_token %} -->
   
       
       <div class="form-wrapper" id="text-field">
-      <input type="text" id="titulo" name="titulo" placeholder="Nome do Filme">
-      <input type="number" id="ano" name="ano" placeholder="Ano">
-      <input type="date" id="datalancamento" name="datalancamento" placeholder="Data de Lançamento">
-      <textarea class="msg" cols="20" rows="8" id="sinopse" name="sinopse" placeholder="Sinopse" width:500px></textarea>
-      <input type="submit"  style="display: block;
+      
+      <input type="text" id="titulo_ep" name="ano" placeholder="Titulo do Episódio">
+      <textarea class="msg" cols="20" rows="8" id="sinopse_ep" name="sinopse_ep" placeholder="Sinopse" width:500px></textarea>
+      <input type="number" id="temporada" name="temporada" placeholder="Temporada">
+      
+      <!-- <input type="submit"  style="display: block;
       color: white;
       background-color: #f70303;
       margin: 0 auto;
       padding: 10px 15px;
       border-radius: 30px;
       margin-top: 10px; " value="Adicionar">
-      </div>  
+      </div>   -->
     
-      </form>
+      <!-- </form> -->
     </main>
-    <!-- <form method="POST" enctype="multipart/form-data"  action="{% if db2 %}/update/{{db2.cpf}}/{% comment %}{% else %}/create/{% endcomment %}{% endif %}"> 
+<form method="POST" enctype="multipart/form-data"> 
       {% csrf_token %}
       {{form.as_p}}
       <input type="submit" placeholder="Adicionar">
-    </form> -->
-
+    </form>
     <footer>
       
     </footer>

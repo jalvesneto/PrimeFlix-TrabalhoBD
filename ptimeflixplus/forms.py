@@ -15,4 +15,4 @@ class SerieForm(ModelForm):
 class EpisodioForm(ModelForm):
     class Meta:
         model = Episodio
-        fields = ['titulo_ep', 'sinopse_ep', 'temporada', 'numero']
+        fields = '__all__'

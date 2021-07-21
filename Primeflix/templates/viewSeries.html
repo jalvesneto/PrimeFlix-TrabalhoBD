@@ -29,13 +29,11 @@
         </tr>
        </thead>
        <body>
-          {% for dbs in db %}
+          {% for dbs in titulo %}
           <tr>
             <th>{{dbs.titulo}}</th>
             <th>{{dbs.ano}}</th>
-            <th>{{dbs.tipo}}</th>
-            <th><a class="button" href="/delete/{{dbs.idtitulo}}">Delete</a></th>
-            <th><a class="button" href="/view/{{dbs.idtitulo}}">View</a></th>
+            <th><a href="/addEp/{{dbs.idtitulo}}">Adicionar Espisodios</a></th>
           </tr>
           {% endfor %}
           
