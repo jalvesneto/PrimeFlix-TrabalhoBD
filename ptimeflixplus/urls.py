@@ -17,11 +17,12 @@ app_name = "Primeflix"
 
 from django.contrib import admin
 from django.urls import path
-from Primeflix.views import home, main, telaCadastrar
+from Primeflix.views import addFilme, home, main, telaCadastrar
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', home),
     path('telaCadastro', telaCadastrar),
-    path('main', main) 
+    path('main', main, name='main'),
+    path('addFilme', addFilme) 
 ]

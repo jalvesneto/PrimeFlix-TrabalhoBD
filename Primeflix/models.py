@@ -4,7 +4,7 @@ class Titulo(models.Model):
    idtitulo =  models.AutoField(primary_key=True, verbose_name="idTitlo")
    titulo = models.CharField(max_length=60, null=False, blank = False, verbose_name="Titulo")
    sinopse = models.TextField(max_length=300, null=False, blank = False, verbose_name="Sinopse")
-   ano = models.IntegerField(null=False, blank = False, verbose_name="Sinopse")
+   ano = models.IntegerField(null=False, blank = False, verbose_name="Ano")
 
    class Meta:
         verbose_name = 'Titulo'

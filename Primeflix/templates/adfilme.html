@@ -4,13 +4,14 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width">
     <title>PrimeFlix Plus</title>
-    <link href="adfilme.css" rel="stylesheet" type="text/css" />
+    {% load static %}
+    <link href="{% static 'adfilme.css' %}" rel="stylesheet" type="text/css" />
     <link rel="preconnect" href="https://fonts.gstatic.com">
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;400&display=swap" rel="stylesheet">
   </head>
   <body>
     <div class = "container1" id = "Topo">
-      <h1 id="Titulo"> PrimeFlix Plus 
+      <h1 id="TituloPage"> PrimeFlix Plus 
       </h1>
       <div id="Menu">
         <h4 id = "Sair"> Usuário 
@@ -19,16 +20,25 @@
     </div> 
     <script src="script.js"></script>
     <main>
+      <form method="POST" enctype="multipart/form-data"  > 
+        {% csrf_token %}
+  
+      
       <div class="form-wrapper" id="text-field">
-      <input type="text" id="nome" name="nome" placeholder="Nome do Filme">
-      <input type="text" id="genero" name="genero" placeholder="Gênero">
-      <input type="text" id="duracao" name="duracao" placeholder="Duração">
-      <input type="text" id="classeind" name="classeind" placeholder="Classe Indicativa">
+      <input type="text" id="titulo" name="titulo" placeholder="Nome do Filme">
+      <input type="number" id="ano" name="ano" placeholder="Ano">
+      <input type="date" id="datalancamento" name="datalancamento" placeholder="Data de Lançamento">
       <textarea class="msg" cols="20" rows="8" id="sinopse" name="sinopse" placeholder="Sinopse" width:500px></textarea>
-      <button onclick=""> <a href="main.html">Adicionar</a></button>
+      <input type="submit" placeholder="Adicionar">
       </div>  
-    </main>
     
+      </form>
+    </main>
+    <!-- <form method="POST" enctype="multipart/form-data"  action="{% if db2 %}/update/{{db2.cpf}}/{% comment %}{% else %}/create/{% endcomment %}{% endif %}"> 
+      {% csrf_token %}
+      {{form.as_p}}
+      <input type="submit" placeholder="Adicionar">
+    </form> -->
 
     <footer>
       
