@@ -71,6 +71,31 @@ def viewTitulo(request, pk):
         return render(request, 'viewTituloFilme.html', data)
     
 
+def update(request,pk):
+    titulo = {}
+    titulo['db'] = Titulo.objects.get(idtitulo=pk)
+    if Serie.objects.filter(titulo_ptr_id=pk).exists():
+        if request.method == "POST":
+            form = SerieForm(request.POST or None, instance=titulo['db'])
+            if form.is_valid:
+                form.save()
+                return redirect('verTitulos')
+        else:
+            titulo['db2'] = Serie.objects.get(titulo_ptr_id=pk)
+            titulo['dbs'] = SerieForm(instance=titulo['db'])
+        return render(request, 'adSerie.html', titulo)
+    else:
+        if request.method == "POST":
+            form = FilmeForm(request.POST or None, instance=titulo['db'])
+            if form.is_valid:
+                form.save()
+                return redirect('verTitulos')
+        else:
+            titulo['db2'] = Filme.objects.get(titulo_ptr_id=pk)
+            titulo['dbs'] = FilmeForm(instance=titulo['db'])
+        return render(request, 'adFilme.html', titulo)   
+    
+
 def delete(request, pk):
     titulo = Titulo.objects.get(idtitulo=pk)
     titulo.delete()

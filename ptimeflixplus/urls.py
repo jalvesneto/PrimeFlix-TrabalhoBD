@@ -17,7 +17,7 @@ app_name = "Primeflix"
 
 from django.contrib import admin
 from django.urls import path
-from Primeflix.views import addFilme, addEp, addSerie, delete, home, sair, main, series, telaCadastrar, verTtulos, viewTitulo
+from Primeflix.views import addFilme, addEp, addSerie, delete, home, sair, main, series, telaCadastrar, update, verTtulos, viewTitulo
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -31,5 +31,6 @@ urlpatterns = [
     path('series', series, name='series'),
     path('verTitulos', verTtulos, name='verTitulos'),
     path('delete/<int:pk>', delete),
+    path('edit/<int:pk>', update),
     path('view/<int:pk>', viewTitulo) 
 ]

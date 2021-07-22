@@ -20,15 +20,15 @@
     </div> 
     <script src="script.js"></script>
     <main>
-      <form method="POST" enctype="multipart/form-data"  > 
+      <form method="POST" enctype="multipart/form-data"> 
         {% csrf_token %}
   
       
       <div class="form-wrapper" id="text-field">
-      <input type="text" id="titulo" name="titulo" placeholder="Nome do Filme">
-      <input type="number" id="ano" name="ano" placeholder="Ano">
-      <input type="date" id="datalancamento" name="datalancamento" placeholder="Data de Lançamento">
-      <textarea class="msg" cols="20" rows="8" id="sinopse" name="sinopse" placeholder="Sinopse" width:500px></textarea>
+      <input type="text" id="titulo" name="titulo" placeholder="Nome do Filme" value="{{db.titulo}}">
+      <input type="number" id="ano" name="ano" placeholder="Ano" value="{{db.ano}}">
+      <input type="date" id="datalancamento" name="datalancamento" placeholder="Data de Lançamento" value="{{db2.datalancamento}}">
+      <textarea class="msg" cols="20" rows="8"  id="sinopse" name="sinopse" placeholder="Sinopse" >{{db.sinopse}}</textarea>
       <input type="submit"  style="display: block;
       color: white;
       background-color: #f70303;

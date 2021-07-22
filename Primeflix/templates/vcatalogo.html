@@ -23,9 +23,10 @@
        <thead>
          <tr>
             <th>Nome</th>
-            <th>Ano de Lançamento</th>
-            <th>Ações</th>
-            <th>Ações</th>
+            <th>Ano</th>
+            <th></th>
+            <th></th>
+            <th></th>
         </tr>
        </thead>
        <body>
@@ -33,8 +34,9 @@
           <tr>
             <th>{{dbs.titulo}}</th>
             <th>{{dbs.ano}}</th>
-            <th><a href="/delete/{{dbs.idtitulo}}" ><button id="B1" onclick="" style="width:80"> Deletar </button></a></th>
             <th><a href="/view/{{dbs.idtitulo}}"><button id="B1" onclick="" style="width:80"> Visualizar </button></a></th>
+            <th><a href="/edit/{{dbs.idtitulo}}" ><button id="B1" onclick="" style="width:80"> Editar </button></a></th>
+            <th><a href="/delete/{{dbs.idtitulo}}" ><button id="B1" onclick="" style="width:80"> Deletar </button></a></th>
           </tr>
           {% endfor %}   
        </body>

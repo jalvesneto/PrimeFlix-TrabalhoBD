@@ -25,10 +25,10 @@
   
       
       <div class="form-wrapper" id="text-field">
-      <input type="text" id="titulo" name="titulo" placeholder="Nome da Série">
-      <input type="number" id="ano" name="ano" placeholder="Ano de Lançamento">
-      <input type="number" id="anofim" name="anofim" placeholder="Ano de Finalização">
-      <textarea class="msg" cols="20" rows="8" id="sinopse" name="sinopse" placeholder="Sinopse" width:500px></textarea>
+      <input type="text" id="titulo" name="titulo" placeholder="Nome da Série" value="{{db.titulo}}">
+      <input type="number" id="ano" name="ano" placeholder="Ano de Lançamento" value="{{db.ano}}">
+      <input type="number" id="anofim" name="anofim" placeholder="Ano de Finalização" value="{{db2.anofim}}">
+      <textarea class="msg" cols="20" rows="8" id="sinopse" name="sinopse" placeholder="Sinopse" width:500px>{{db.sinopse}}</textarea>
       <input type="submit"  style="display: block;
       color: white;
       background-color: #f70303;
