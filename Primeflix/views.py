@@ -2,6 +2,7 @@ from Primeflix.models import Serie, Titulo, Filme, Episodio
 from django.http import request, HttpResponse
 from django.shortcuts import render, redirect
 from ptimeflixplus.forms import EpisodioForm, FilmeForm, SerieForm
+from django.core.paginator import Paginator
 
 def home(request):
     return render(request, "index.html")
@@ -43,8 +44,10 @@ def series(request):
 
 def addEp(request,pk):
     data = {}
+    data['pk'] = pk
     if request.method == 'POST':
         FormEpisodio = EpisodioForm(request.POST)
+        print(request.POST)
         FormEpisodio.save()
         return redirect('series')
     else:
@@ -61,7 +64,10 @@ def viewTitulo(request, pk):
     data['dbtitulo'] = Titulo.objects.get(idtitulo=pk)
     if Serie.objects.filter(titulo_ptr_id=pk).exists():
         data['dbserie'] = Serie.objects.get(titulo_ptr_id=pk)
-        data['dbepisode'] = Episodio.objects.filter(fk_serie=pk)
+        allep = Episodio.objects.filter(fk_serie=pk).order_by('temporada', 'numero')
+        paginator = Paginator(allep, 4)
+        pages=request.GET.get('page')
+        data['dbepisode'] = paginator.get_page(pages)
         return render(request, 'viewTituloSerie.html', data)
     else:
         data['dbfilme'] = Filme.objects.get(titulo_ptr_id=pk)

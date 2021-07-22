@@ -20,32 +20,27 @@
     </div> 
     <script src="script.js"></script>
     <main>
-      <!-- <form method="POST" enctype="multipart/form-data"  > 
-        {% csrf_token %} -->
-  
-      
+      <form method="POST" enctype="multipart/form-data"  > 
+        {% csrf_token %}
       <div class="form-wrapper" id="text-field">
-      
-      <input type="text" id="titulo_ep" name="ano" placeholder="Titulo do Episódio">
+      <input type="hidden" id="fk_serie" name="fk_serie" placeholder="Série" value="{{pk}}">
+      <input type="number" id="numero" name="numero" placeholder="Número do Episódio">
+      <input type="text" id="titulo_ep" name="titulo_ep" placeholder="Titulo do Episódio">
       <textarea class="msg" cols="20" rows="8" id="sinopse_ep" name="sinopse_ep" placeholder="Sinopse" width:500px></textarea>
       <input type="number" id="temporada" name="temporada" placeholder="Temporada">
       
-      <!-- <input type="submit"  style="display: block;
+      <input type="submit"  style="display: block;
       color: white;
       background-color: #f70303;
       margin: 0 auto;
       padding: 10px 15px;
       border-radius: 30px;
       margin-top: 10px; " value="Adicionar">
-      </div>   -->
+      </div>   
     
-      <!-- </form> -->
+      </form> 
     </main>
-<form method="POST" enctype="multipart/form-data"> 
-      {% csrf_token %}
-      {{form.as_p}}
-      <input type="submit" placeholder="Adicionar">
-    </form>
+
   </body>
   <a href="/series"><button id="B1"  style="width:80;"> Voltar </button></a>
   <footer>
