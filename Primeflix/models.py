@@ -27,11 +27,12 @@ class Filme(Titulo):
         verbose_name_plural = 'Filmes'
         db_table = 'filme'
 
-class Episodio(Serie):
+class Episodio(models.Model):
     numero = models.AutoField(primary_key=True, verbose_name="Numero Episódio")
     titulo_ep = models.CharField(max_length=60, null=False, blank = False, verbose_name="Titulo Episódio")
     sinopse_ep = models.TextField(max_length=300, null=False, blank = False, verbose_name="Sinopse do Episódio")
     temporada = models.IntegerField(null=False, blank=False, verbose_name="Temporada")
+    fk_serie = models.ForeignKey('Serie', db_column='titulo_ptr_id', on_delete=models.CASCADE)
 
     class Meta:
         verbose_name = 'Episodio'

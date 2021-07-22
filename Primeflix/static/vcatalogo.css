@@ -13,8 +13,10 @@ body {
 background: url("images/bgimage2.jpg") 50% 50%;
 }
 
+
 main{
   text-align: center;
+  background-color: rgba(255, 255, 255, 0.199);
 }
 
 #Titulo{
@@ -42,7 +44,7 @@ margin-bottom: 20px
 
 table{
   /* display: block; */
-  background-color: rgba(255, 255, 255, 0.199);
+  
   /* text-align: center; */
   /* border-collapse: collapse; */
   /* border: solid 2px black;  */

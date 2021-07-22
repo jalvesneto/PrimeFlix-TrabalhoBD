@@ -1,4 +1,4 @@
-from Primeflix.models import Serie, Titulo, Filme
+from Primeflix.models import Serie, Titulo, Filme, Episodio
 from django.http import request, HttpResponse
 from django.shortcuts import render, redirect
 from ptimeflixplus.forms import EpisodioForm, FilmeForm, SerieForm
@@ -46,13 +46,12 @@ def series(request):
 
 def addEp(request,pk):
     data = {}
-    data['db'] = Serie.objects.get(titulo_ptr_id=pk)
     if request.method == 'POST':
-        FormEpisodio = EpisodioForm(request.POST, instance=data['db'])
+        FormEpisodio = EpisodioForm(request.POST)
         FormEpisodio.save()
         return redirect('series')
     else:
-        data['form'] = EpisodioForm(instance=data['db'])
+        data['form'] = EpisodioForm()
     return render(request, "addep.html", data)
 
 def verTtulos(request):
@@ -65,6 +64,7 @@ def viewTitulo(request, pk):
     data['dbtitulo'] = Titulo.objects.get(idtitulo=pk)
     if Serie.objects.filter(titulo_ptr_id=pk).exists():
         data['dbserie'] = Serie.objects.get(titulo_ptr_id=pk)
+        data['dbepisode'] = Episodio.objects.filter(fk_serie=pk)
         return render(request, 'viewTituloSerie.html', data)
     else:
         data['dbfilme'] = Filme.objects.get(titulo_ptr_id=pk)

@@ -44,6 +44,29 @@
           
        </body>
      </table>
+   
+     <h2>Episódios</h2>
+     
+     <table class="table">
+      <thead>
+        <tr>
+           <th>Nº</th>
+           <th>Temporada</th>
+           <th>Nome</th>
+           <th>Sinopse</th>
+       </tr>
+      </thead>
+      <body>
+         {% for dbs in dbepisode %}
+         <tr>
+           <th>{{dbs.numero}}</th>
+           <th>{{dbs.temporada}}</th>
+           <th>{{dbs.titulo_ep}}</th>
+           <th>{{dbs.sinopse_ep}}</th>
+         </tr>
+         {% endfor %}
+      </body>
+    </table>
    </main>
     <footer>
 
