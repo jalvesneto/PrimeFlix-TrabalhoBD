@@ -47,6 +47,10 @@ body {
   margin-top: 20px; 
 }
 
+a{
+  color:  rgb(0, 26, 255);
+  }
+
 .container1{
     width: auto;
     padding: 0px 20px 20px 40px;
@@ -55,13 +59,11 @@ body {
 
 footer{
   clear: both ;
-  /* //background-color: blue; */
   text-align: center;
+  background-color: black;
   text-shadow: 1px 1px #020202d2;
   color: red;
-  /* background-color: rgba(0, 0, 0, 0.5); */
-  height: 50px;
-  padding: 10px 20px 20px 20px;
-  position: block;
-  margin-top: 150px;
+  width: 100%;
+  position: absolute;
+  bottom: 0;
 }

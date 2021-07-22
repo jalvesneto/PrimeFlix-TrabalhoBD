@@ -13,7 +13,6 @@ a:link
     background: url("images/bgimage2.jpg") 50% 50%;
   }
 
-
 #TituloPage{
   clear: both;
   text-align: center;
@@ -89,8 +88,7 @@ a:link
 }
 
 #sinopse{
-  margin-top: 5px;
-  
+  margin-top: 5px;  
 }
 
 .form-wrapper button{
@@ -103,10 +101,41 @@ a:link
   margin-top: 10px;
 }
 
+button{
+  color: white;
+  text-decoration: none;
+  background-color: red; 
+  margin: 0px auto;
+  padding: 10px 15px;
+  border-radius: 5px;
+  margin-top: 20px; 
+}
+
 .form-wrapper > button:hover {
   background-color: rgba(207, 12, 12, 0.911);
 }
 
 a{
   color: white
+}
+
+#add{
+  display: block;
+  color: white;
+  background-color: #f70303;
+  margin: 0 auto;
+  padding: 10px 15px;
+  border-radius: 30px;
+  margin-top: 10px; 
+}
+
+footer{
+  clear: both ;
+  text-align: center;
+  background-color: black;
+  text-shadow: 1px 1px #020202d2;
+  color: red;
+  width: 100%;
+  position: absolute;
+  bottom: 0;
 }

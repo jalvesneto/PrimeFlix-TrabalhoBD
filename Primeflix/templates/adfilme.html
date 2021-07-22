@@ -29,25 +29,14 @@
       <input type="number" id="ano" name="ano" placeholder="Ano" value="{{db.ano}}">
       <input type="date" id="datalancamento" name="datalancamento" placeholder="Data de Lançamento" value="{{db2.datalancamento}}">
       <textarea class="msg" cols="20" rows="8"  id="sinopse" name="sinopse" placeholder="Sinopse" >{{db.sinopse}}</textarea>
-      <input type="submit"  style="display: block;
-      color: white;
-      background-color: #f70303;
-      margin: 0 auto;
-      padding: 10px 15px;
-      border-radius: 30px;
-      margin-top: 10px; " value="Adicionar">
+      <input type="submit"  id="add"  value="Adicionar">
       </div>  
     
       </form>
     </main>
-    <!-- <form method="POST" enctype="multipart/form-data"  action="{% if db2 %}/update/{{db2.cpf}}/{% comment %}{% else %}/create/{% endcomment %}{% endif %}"> 
-      {% csrf_token %}
-      {{form.as_p}}
-      <input type="submit" placeholder="Adicionar">
-    </form> -->
-
+    <a href="/main"><button id="B1"  style="width:80;"> Voltar </button></a>
     <footer>
-      
+      <h3>&copy; JoseAlves - MatheusSouza - MisaelLima</h3> 
     </footer>
   </body>
 </html>

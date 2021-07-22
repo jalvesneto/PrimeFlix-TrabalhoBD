@@ -13,7 +13,6 @@ body {
 background: url("images/bgimage2.jpg") 50% 50%;
 }
 
-
 main{
   text-align: center;
   background-color: rgba(255, 255, 255, 0.199);
@@ -43,21 +42,13 @@ margin-bottom: 20px
 }
 
 table{
-  /* display: block; */
-  
-  /* text-align: center; */
-  /* border-collapse: collapse; */
-  /* border: solid 2px black;  */
-  margin-top: 20px;
+  margin-top: 15px;
   margin-left: auto;
   margin-right: auto; 
 }
 
 th{
   padding: 10px;
-  /* border: solid 2px black; 
-  width:20px;
-  height:20px; */
 }
 
 button{
@@ -70,15 +61,26 @@ button{
   border-radius: 5px;
 }
 
+.buttons button{
+  display: block;
+  color: white;
+  text-decoration: none;
+  background-color: red; 
+  margin: 0px auto;
+  padding: 10px 15px;
+  border-radius: 5px;
+  margin-top: 20px; 
+}
+
 footer{
   clear: both ;
   text-align: center;
-  text-shadow: 2px 2px #020202d2;
+  background-color: black;
+  text-shadow: 1px 1px #020202d2;
   color: red;
-  height: 50px;
-  padding: 10px 20px 20px 20px;
-  position: block;
-  margin-top: 150px;
+  width: 100%;
+  position: absolute;
+  bottom: 0;
 }
 
 a{
@@ -89,4 +91,10 @@ color:  rgb(0, 26, 255);
   width: auto;
   padding: 0px 20px 20px 40px;
   height: 50px;
+}
+
+h2{
+  margin-top: 20px;
+  text-shadow: 2px 2px #020202d2;
+  color: rgba(219, 11, 11, 0.884);
 }

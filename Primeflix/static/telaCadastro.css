@@ -21,10 +21,7 @@ body {
   height: 200px;
   background-color: rgba(0, 0, 0, 0.664);
   padding: 50px 0px 80px 0px;
-  /* //margin: 0px 580px 0px 580px; */
   margin: auto;
-  /* //width: 40%;
-  //border: 20px,20px,20px,20px */
 }
 
 .form-wrapper input {
@@ -76,4 +73,15 @@ a{
     width: auto;
     padding: 0px 20px 20px 40px;
     height: 50px;
+}
+
+footer{
+  clear: both ;
+  text-align: center;
+  background-color: black;
+  text-shadow: 1px 1px #020202d2;
+  color: red;
+  width: 100%;
+  position: absolute;
+  bottom: 0;
 }

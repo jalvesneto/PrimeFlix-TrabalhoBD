@@ -14,10 +14,10 @@
       </h1>
       <div id="Menu">
         <h4 id = "Sair"> Usuário 
-          <a href="login">Sair</a></h4>
+          <a href="/">Sair</a></h4>
         </div>
     </div>  
-    <script src="script.js"></script>
+    {% comment %} <script src="script.js"></script> {% endcomment %}
    <main>
      <table class="table">
        <thead>
@@ -34,17 +34,17 @@
           <tr>
             <th>{{dbs.titulo}}</th>
             <th>{{dbs.ano}}</th>
-            <th><a href="/view/{{dbs.idtitulo}}"><button id="B1" onclick="" style="width:80"> Visualizar </button></a></th>
-            <th><a href="/edit/{{dbs.idtitulo}}" ><button id="B1" onclick="" style="width:80"> Editar </button></a></th>
-            <th><a href="/delete/{{dbs.idtitulo}}" ><button id="B1" onclick="" style="width:80"> Deletar </button></a></th>
+            <th><a href="/view/{{dbs.idtitulo}}"><button id="B1" style="width:80"> Visualizar </button></a></th>
+            <th><a href="/edit/{{dbs.idtitulo}}" ><button id="B1"  style="width:80"> Editar </button></a></th>
+            <th><a href="/delete/{{dbs.idtitulo}}" ><button id="B1" style="width:80"> Deletar </button></a></th>
           </tr>
           {% endfor %}   
        </body>
      </table>
    </main>
-   <a href="/main"><button id="B1" onclick="" style="width:80; margin-top:20px;"> Voltar </button></a>
+   <a href="/main"><button id="B1"  style="width:80; margin-top:20px;"> Voltar </button></a>
     <footer>
-      <h3>Authors: JoseAlves - MatheusSouza - MisaelLima</h3> 
+      <h3>&copy; JoseAlves - MatheusSouza - MisaelLima</h3> 
     </footer>
   </body>
 </html>

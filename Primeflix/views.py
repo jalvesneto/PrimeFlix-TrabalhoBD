@@ -6,9 +6,6 @@ from ptimeflixplus.forms import EpisodioForm, FilmeForm, SerieForm
 def home(request):
     return render(request, "index.html")
 
-def sair(request):
-    return render(request, "index.html")
-
 def telaCadastrar(request):
     return render(request, "telacadastro.html")
 
