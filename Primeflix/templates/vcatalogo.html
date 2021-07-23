@@ -42,6 +42,17 @@
           {% endfor %}   
        </body>
      </table>
+     <div class="pagination col-8 m-auto pt-5 pb-2 text-center">
+      {% if dbs.has_previous %}
+          <a href="?page={{dbs.previous_page_number}}"> < </a>
+      {% endif %}
+  
+      <b>{{dbs.number}}</b>
+  
+      {% if dbs.has_next %}
+          <a href="?page={{dbs.next_page_number}}"> > </a>
+      {% endif %}
+  </div>
    </main>
    <a href="/main"><button id="B1"  style="width:80; margin-top:20px;"> Voltar </button></a>
     <footer>

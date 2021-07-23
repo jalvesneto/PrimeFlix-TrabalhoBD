@@ -57,7 +57,10 @@ def addEp(request,pk):
 
 def verTtulos(request):
     data = {}
-    data['db'] = Titulo.objects.all()
+    alltitulos = Titulo.objects.all()
+    paginator = Paginator(alltitulos, 5)
+    pages=request.GET.get('page')
+    data['db'] = paginator.get_page(pages)
     return render(request, 'vcatalogo.html', data)
 
 def viewTitulo(request, pk):
@@ -66,7 +69,7 @@ def viewTitulo(request, pk):
     if Serie.objects.filter(titulo_ptr_id=pk).exists():
         data['dbserie'] = Serie.objects.get(titulo_ptr_id=pk)
         allep = Episodio.objects.filter(fk_serie=pk).order_by('temporada', 'numero')
-        paginator = Paginator(allep, 4)
+        paginator = Paginator(allep, 3)
         pages=request.GET.get('page')
         data['dbepisode'] = paginator.get_page(pages)
         return render(request, 'viewTituloSerie.html', data)
