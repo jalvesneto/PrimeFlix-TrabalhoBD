@@ -3,7 +3,7 @@ from django.db import models
 class Titulo(models.Model):
    idtitulo =  models.AutoField(primary_key=True, verbose_name="idTitlo")
    titulo = models.CharField(max_length=60, null=False, blank = False, verbose_name="Titulo")
-   sinopse = models.TextField(max_length=300, null=False, blank = False, verbose_name="Sinopse")
+   sinopse = models.TextField(max_length=1000, null=False, blank = False, verbose_name="Sinopse")
    ano = models.IntegerField(null=False, blank = False, verbose_name="Ano")
 
    class Meta:
@@ -20,7 +20,7 @@ class Serie(Titulo):
         db_table = 'serie'
 
 class Filme(Titulo):
-    datalancamento = models.DateField(null=False, verbose_name="Data de Lançamento")
+    datalancamento = models.CharField(max_length=10, null=False, verbose_name="Data de Lançamento")
 
     class Meta:
         verbose_name = 'Filme'

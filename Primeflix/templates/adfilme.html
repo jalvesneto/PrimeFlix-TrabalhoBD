@@ -23,7 +23,6 @@
       <form method="POST" enctype="multipart/form-data"> 
         {% csrf_token %}
   
-      
       <div class="form-wrapper" id="text-field">
       <input type="text" id="titulo" name="titulo" placeholder="Nome do Filme" value="{{db.titulo}}">
       <input type="number" id="ano" name="ano" placeholder="Ano" value="{{db.ano}}">

@@ -17,6 +17,7 @@ def addFilme(request):
     data = {}
     if request.method == 'POST':
         formFilme = FilmeForm(request.POST)
+        print(request.POST['datalancamento'])
         formFilme.save()
         return redirect('main')
         
