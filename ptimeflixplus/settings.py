@@ -26,7 +26,7 @@ SECRET_KEY = 'django-insecure-*z8&-rz@x7x5d$_3!8d)l6ql#2=7@=6dl%4!oh8yf3s%(e+6$l
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['https://primeflix-bd.herokuapp.com/']
 
 
 # Application definition
