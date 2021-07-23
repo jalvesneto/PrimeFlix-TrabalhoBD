@@ -28,7 +28,8 @@ class Filme(Titulo):
         db_table = 'filme'
 
 class Episodio(models.Model):
-    numero = models.IntegerField(primary_key=True, verbose_name="Numero Episódio")
+    id_ep = models.AutoField(primary_key=True)
+    numero = models.IntegerField(null=False, blank=False, verbose_name="Numero Episódio")
     titulo_ep = models.CharField(max_length=60, null=False, blank = False, verbose_name="Titulo Episódio")
     sinopse_ep = models.TextField(max_length=1000, null=False, blank = False, verbose_name="Sinopse do Episódio")
     temporada = models.IntegerField(null=False, blank=False, verbose_name="Temporada")
@@ -39,3 +40,5 @@ class Episodio(models.Model):
         verbose_name_plural = 'Episodios'
         db_table = 'episodio'
 
+    def __str__(self):
+        return  self.fk_serie

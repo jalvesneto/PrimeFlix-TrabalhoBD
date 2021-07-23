@@ -59,6 +59,8 @@
            <th>{{dbs.numero}}</th>
            <th>{{dbs.titulo_ep}}</th>
            <th>{{dbs.sinopse_ep}}</th>
+           <th><a href="/editep/{{dbs.id_ep}}/{{dbtitulo.idtitulo}}" class="button">Editar</a></th>
+           <th><a href="/deleteep/{{dbs.id_ep}}/{{dbtitulo.idtitulo}}" class="button">Delete</a></th>
          </tr>
          {% endfor %}
       </body>

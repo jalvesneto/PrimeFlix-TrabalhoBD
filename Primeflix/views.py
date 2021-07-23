@@ -98,8 +98,24 @@ def update(request,pk):
             titulo['dbs'] = FilmeForm(instance=titulo['db'])
         return render(request, 'adFilme.html', titulo)   
     
+def updateEp(request,pk,fk):
+    data = {}
+    data['ep'] = Episodio.objects.get(id_ep=pk)
+    data['fk'] = fk
+    if request.method == 'POST':
+        FormEpisodio = EpisodioForm(request.POST or None, instance=data['ep'])
+        print(request.POST)
+        FormEpisodio.save()
+        return redirect('series')
+    return render(request, "addep.html", data)
+
 
 def delete(request, pk):
     titulo = Titulo.objects.get(idtitulo=pk)
     titulo.delete()
     return redirect('verTitulos')
+
+def deleteep(request,pk, fk):
+    ep = Episodio.objects.get(id_ep=pk)
+    ep.delete()
+    return redirect(request.META['HTTP_REFERER'])

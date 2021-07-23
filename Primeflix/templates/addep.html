@@ -23,11 +23,11 @@
       <form method="POST" enctype="multipart/form-data"  > 
         {% csrf_token %}
       <div class="form-wrapper" id="text-field">
-      <input type="hidden" id="fk_serie" name="fk_serie" placeholder="Série" value="{{pk}}">
-      <input type="number" id="numero" name="numero" placeholder="Número do Episódio">
-      <input type="text" id="titulo_ep" name="titulo_ep" placeholder="Titulo do Episódio">
-      <textarea class="msg" cols="20" rows="8" id="sinopse_ep" name="sinopse_ep" placeholder="Sinopse" width:500px></textarea>
-      <input type="number" id="temporada" name="temporada" placeholder="Temporada">
+      <input type="hidden" id="fk_serie" name="fk_serie" placeholder="Série" value="{{pk}}{{fk}}">
+      <input type="number" id="numero" name="numero" placeholder="Número do Episódio" value="{{ep.numero}}">
+      <input type="text" id="titulo_ep" name="titulo_ep" placeholder="Titulo do Episódio" value="{{ep.titulo_ep}}">
+      <textarea class="msg" cols="20" rows="8" id="sinopse_ep" name="sinopse_ep" placeholder="Sinopse" width:500px>{{ep.sinopse_ep}}</textarea>
+      <input type="number" id="temporada" name="temporada" placeholder="Temporada" value="{{ep.temporada}}">
       
       <input type="submit"  style="display: block;
       color: white;
