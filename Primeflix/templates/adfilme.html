@@ -31,7 +31,7 @@
       <textarea class="msg" cols="20" rows="8"  id="sinopse" name="sinopse" placeholder="Sinopse" >{{db.sinopse}}</textarea>
       
       <input type="hidden" id="titulo" name="fk_titulo" value="1">
-      {{genero2.genero}}
+      
       <select id="genero" name="fk_genero">
         {% for dbs in genero %}
         {% if dbs.genero == genero2.genero %}
