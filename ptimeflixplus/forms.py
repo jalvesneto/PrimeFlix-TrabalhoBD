@@ -1,6 +1,7 @@
+from django.contrib.auth import login
 from django.forms import ModelForm
 from django import forms
-from Primeflix.models import Episodio, Filme, Serie
+from Primeflix.models import Episodio, Filme, Serie, Usuario
 
 class FilmeForm(ModelForm):
     class Meta:
@@ -15,4 +16,10 @@ class SerieForm(ModelForm):
 class EpisodioForm(ModelForm):
     class Meta:
         model = Episodio
+        fields = '__all__'
+
+
+class UsuarioForm(ModelForm):
+    class Meta:
+        model = Usuario
         fields = '__all__'

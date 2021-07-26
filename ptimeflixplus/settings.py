@@ -10,7 +10,7 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/3.2/ref/settings/
 """
 import os
-import django_heroku
+# import django_heroku
 from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -26,7 +26,7 @@ SECRET_KEY = 'django-insecure-*z8&-rz@x7x5d$_3!8d)l6ql#2=7@=6dl%4!oh8yf3s%(e+6$l
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['https://primeflix-bd.herokuapp.com/']
+ALLOWED_HOSTS = ['https://primeflix-bd.herokuapp.com/', '127.0.0.1']
 
 
 # Application definition
@@ -81,11 +81,10 @@ DATABASES = {
         'NAME': 'netprime',
         'USER': 'postgres',
         'PASSWORD': 'postgres',
-        'HOST': 'database-1.cvn1risxno8p.us-east-1.rds.amazonaws.com',
+        'HOST': 'localhost',
         'PORT': '5432',
     }
 }
-
 
 # Password validation
 # https://docs.djangoproject.com/en/3.2/ref/settings/#auth-password-validators
@@ -132,4 +131,4 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 # Activate Django-Heroku.
-django_heroku.settings(locals())
+# django_heroku.settings(locals())

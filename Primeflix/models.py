@@ -13,6 +13,7 @@ class Titulo(models.Model):
 
 class Serie(Titulo):
     anofim = models.IntegerField( null=True, verbose_name='AnoFim')
+    num_temporada = models.IntegerField( null=True, verbose_name='Temporadas')
     
     class Meta:
         verbose_name = 'Serie'
@@ -42,3 +43,14 @@ class Episodio(models.Model):
 
     def __str__(self):
         return  self.fk_serie
+
+
+class Usuario(models.Model):
+    id_usuario = models.AutoField(primary_key=True, verbose_name="idUser")
+    email = models.EmailField(max_length=100, null=False, blank=False, unique=True)
+    senha = models.CharField(max_length=30, null=False, blank=False)
+
+    class Meta:
+        verbose_name = 'Usuario'
+        verbose_name_plural = 'Usuarios'
+        db_table = 'usuario'

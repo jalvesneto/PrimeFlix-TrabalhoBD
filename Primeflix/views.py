@@ -1,15 +1,24 @@
-from Primeflix.models import Serie, Titulo, Filme, Episodio
+from Primeflix.models import Serie, Titulo, Filme, Episodio, Usuario
 from django.http import request, HttpResponse
 from django.shortcuts import render, redirect
-from ptimeflixplus.forms import EpisodioForm, FilmeForm, SerieForm
+from django.contrib.auth.models import User
+from django.contrib.auth import authenticate, login
+from django.contrib import messages
+from ptimeflixplus.forms import EpisodioForm, FilmeForm, SerieForm, UsuarioForm
 from django.core.paginator import Paginator
 
-def home(request):
-    return render(request, "index.html")
-
-def telaCadastrar(request):
-    return render(request, "telacadastro.html")
-
+def loginUsuario(request):
+    if request.method == 'POST':
+        email = request.POST['usuario']
+        senha = request.POST['senha']
+        usuario = authenticate(request, username=email, password=senha)
+        if usuario is not None:
+            login(request, usuario)
+            return redirect(main)
+        else:
+            messages.error(request, "email ou senha errado!!")
+    return render(request, 'index.html')
+    
 def main(request):
     return render(request, "main.html")
 
@@ -17,10 +26,8 @@ def addFilme(request):
     data = {}
     if request.method == 'POST':
         formFilme = FilmeForm(request.POST)
-        print(request.POST['datalancamento'])
         formFilme.save()
         return redirect('main')
-        
     else:
         formFilme = FilmeForm()
     data['form'] = formFilme
@@ -82,25 +89,25 @@ def update(request,pk):
     titulo = {}
     titulo['db'] = Titulo.objects.get(idtitulo=pk)
     if Serie.objects.filter(titulo_ptr_id=pk).exists():
-        if request.method == "POST":
-            form = SerieForm(request.POST or None, instance=titulo['db'])
+        titulo['db2'] = Serie.objects.get(titulo_ptr_id=pk)
+        if request.method == "POST":          
+            form = SerieForm(request.POST or None, instance=titulo['db2'])
             if form.is_valid:
                 form.save()
                 return redirect('verTitulos')
         else:
-            titulo['db2'] = Serie.objects.get(titulo_ptr_id=pk)
-            titulo['dbs'] = SerieForm(instance=titulo['db'])
-        return render(request, 'adSerie.html', titulo)
+            titulo['dbs'] = SerieForm(instance = titulo['db'])
+        return render(request, 'adserie.html', titulo)
     else:
+        titulo['db2'] = Filme.objects.get(titulo_ptr_id=pk)
         if request.method == "POST":
-            form = FilmeForm(request.POST or None, instance=titulo['db'])
+            form = FilmeForm(request.POST or None, instance=titulo['db2'])
             if form.is_valid:
                 form.save()
                 return redirect('verTitulos')
-        else:
-            titulo['db2'] = Filme.objects.get(titulo_ptr_id=pk)
+        else:  
             titulo['dbs'] = FilmeForm(instance=titulo['db'])
-        return render(request, 'adFilme.html', titulo)   
+        return render(request, 'adfilme.html', titulo)   
     
 def updateEp(request,pk,fk):
     data = {}
@@ -113,7 +120,6 @@ def updateEp(request,pk,fk):
         return redirect('series')
     return render(request, "addep.html", data)
 
-
 def delete(request, pk):
     titulo = Titulo.objects.get(idtitulo=pk)
     titulo.delete()
@@ -123,3 +129,21 @@ def deleteep(request,pk, fk):
     ep = Episodio.objects.get(id_ep=pk)
     ep.delete()
     return redirect(request.META['HTTP_REFERER'])
+
+def cria_user_django(info):
+    user = User.objects.create_user(info['email'], info['email'], info['senha'])
+    user.save()
+
+def cadUsuario(request):
+    data = {}
+    if request.method == "POST":
+        user = UsuarioForm(request.POST)
+        if user.is_valid():
+            cria_user_django(request.POST)
+            user.save()
+            return redirect("/")
+    else:
+        user = UsuarioForm()
+    data['form'] = user
+    return render(request, "telaCadastro.html", data)
+

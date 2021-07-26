@@ -30,9 +30,12 @@ body {
 }
 
 #Sair{
-  text-align: center;
-  text-shadow: 1px 1px #020202d2;
-  color: rgba(219, 11, 11, 0.884);
+  text-decoration: none;
+  background-color: red; 
+  margin: 0px auto;
+  padding: 10px 15px;
+  border-radius: 5px;
+  background-color: red; 
   margin-bottom: 20px
 }
 
@@ -48,7 +51,7 @@ body {
 }
 
 a{
-  color:  rgb(0, 26, 255);
+  color:  rgb(248, 248, 250);
   }
 
 .container1{

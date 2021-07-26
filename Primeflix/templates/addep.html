@@ -15,11 +15,10 @@
       <h1 id="TituloPage"> PrimeFlix Plus 
       </h1>
       <div id="Menu">
-        <h4 id = "Sair"> Usuário 
-          <a href="index.html">Sair</a></h4>
+        <button id = "Sair">
+          <a href="/">Sair</a></button>
         </div>
     </div> 
-    
     <main>
       <form method="POST" enctype="multipart/form-data"  > 
         {% csrf_token %}
@@ -30,13 +29,7 @@
       <textarea class="msg" cols="20" rows="8" id="sinopse_ep" name="sinopse_ep" placeholder="Sinopse" width:500px>{{ep.sinopse_ep}}</textarea>
       <input type="number" id="temporada" name="temporada" placeholder="Temporada" value="{{ep.temporada}}">
       
-      <input type="submit"  style="display: block;
-      color: white;
-      background-color: #f70303;
-      margin: 0 auto;
-      padding: 10px 15px;
-      border-radius: 30px;
-      margin-top: 10px; " value="Adicionar">
+      <input type="submit"  id="add " value="Adicionar">
       </div>   
     
       </form> 
@@ -45,7 +38,7 @@
   </body>
   <a href="/series"><button id="B1"  style="width:80;"> Voltar </button></a>
   <footer>
-    <h3>&copy; JoseAlves - MatheusSouza - MisaelLima</h3> 
+    <h3>&copy; JoseAlves - MatheusSouza</h3> 
   </footer>
 </html>
 

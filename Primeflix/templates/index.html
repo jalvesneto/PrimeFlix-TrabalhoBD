@@ -15,15 +15,24 @@
       <h1 id="Titulo"> PrimeFlix Plus </h1>
      </div>
     <main>
-   <div class="form-wrapper" id="text-field">
-        <h2>Entrar</h2>
-            <input type="text" id="usuario" name="usuario" placeholder="Usuário">
-            <input type="password" id="senha" name="senha" placeholder="Senha">
-           <a href="/main"><button onclick="login()"> Login </button></a>
-            
+       <div class="form-wrapper" >
+            <form method="POST" class="form-wrapper" id="text-field" action="">
+              {% csrf_token %}
+              <h2>Entrar</h2>
+              <input type="text" id="usuario" name="usuario" placeholder="email">
+              <input type="password" id="senha" name="senha" placeholder="senha">
+              <button type="submit" class="btn btn-primary">Login</button>
+            </form>
+            {% if messages %}
+              {% for message in messages %}
+                <div class="mensagem" id = "mensagem">
+                  <strong><font color="red">{{message}}</font></strong>
+              {% endfor%}
+            {% endif %}
+        </div>
     </main>
     <footer>
-        <h3>&copy; JoseAlves - MatheusSouza - MisaelLima</h3>
+        <h3>&copy; JoseAlves - MatheusSouza</h3>
     </footer>
   </body>
 </html>

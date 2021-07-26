@@ -15,17 +15,21 @@
      <h1 id="Titulo"> PrimeFlix Plus </h1>
    </div>
     <main>
-      <div class="form-wrapper" id="text-field">
-      <input type="text" id="nome" name="nome" placeholder="Nome">
-      <input type="text" id="Sobrenome" name="Sobrenome" placeholder="Sobrenome">
-      <input type="text" id="email" name="email" placeholder="E-mail">
-      <input type="text" id="Login" name="Login" placeholder="Login">
-      <input type="password" id="password" name="password" placeholder="Senha">
-      <button onclick="cadastrar()"> <a href="/">Adicionar</a></button>
-      </div>  
+      <form method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        <div class="form-wrapper" id="text-field">
+          {% comment %} <input type="text" id="nome" name="nome" placeholder="Nome">
+          {% comment %} <input type="text" id="Sobrenome" name="Sobrenome" placeholder="Sobrenome"> {% endcomment %}
+          <input type="text" id="email" name="email" placeholder="E-mail" value = "{{db.email}}">
+          {% comment %} <input type="text" id="Login" name="Login" placeholder="Login"> {% endcomment %}
+          <input type="password" id="senha" name="senha" placeholder="Senha" value = "{{db.senha}}">
+          {% comment %} <button <a href="/">voltar</a></button> {% endcomment %}
+          <input type="submit" id ="cad"  value="Cadastrar">
+        </div>
+      </form>  
     </main>
     <footer>
-        <h3>&copy; JoseAlves - MatheusSouza - MisaelLima</h3>
+        <h3>&copy; JoseAlves - MatheusSouza</h3>
     </footer>
   </body>
 </html>
