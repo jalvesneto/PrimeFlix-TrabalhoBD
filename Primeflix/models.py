@@ -11,6 +11,16 @@ class Titulo(models.Model):
         verbose_name_plural = 'Titulos'
         db_table = 'titulo'
 
+
+class Genero(models.Model):
+    idgenero = models.AutoField(primary_key=True, verbose_name="idgenero")
+    genero = models.CharField(max_length=20, null=False, blank = False, verbose_name="Genero")
+
+class Possui(models.Model):
+    
+    fk_titulo = models.ForeignKey('Titulo', db_column='idtitulo', on_delete=models.CASCADE)
+    fk_genero = models.ForeignKey('Genero', db_column='idgenero', on_delete=models.CASCADE)
+
 class Serie(Titulo):
     anofim = models.IntegerField( null=True, verbose_name='AnoFim')
     num_temporada = models.IntegerField( null=True, verbose_name='Temporadas')

@@ -32,6 +32,7 @@
        </thead>
        <body>
           {% for dbs in db %}
+          {% if dbs.idtitulo != 1 %}
           <tr>
             <th>{{dbs.titulo}}</th>
             <th>{{dbs.ano}}</th>
@@ -39,6 +40,7 @@
             <th><a href="/edit/{{dbs.idtitulo}}" ><button id="B1"  style="width:80"> Editar </button></a></th>
             <th><a href="/delete/{{dbs.idtitulo}}" ><button id="B1" style="width:80"> Deletar </button></a></th>
           </tr>
+          {% endif %}
           {% endfor %}   
        </body>
      </table>

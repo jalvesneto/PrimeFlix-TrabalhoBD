@@ -26,6 +26,7 @@
             <th>Ano de Lançamento</th>
             <th>Ano do Fim</th>
             <th>Numero Temporadas</th>
+            <th>Genero</th>
             <th>Sinopse</th>
         </tr>
        </thead>
@@ -39,7 +40,8 @@
             {% else %}
             <th> - </th>
             {% endif %}
-            <th>{{dbserie.num_temporada}}</th>  
+            <th>{{dbserie.num_temporada}}</th>
+            <th>{{genero.genero}}</th>  
             <th>{{dbtitulo.sinopse}}</th>    
           </tr>
        </body>

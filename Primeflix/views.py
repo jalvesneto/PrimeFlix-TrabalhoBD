@@ -1,10 +1,10 @@
-from Primeflix.models import Serie, Titulo, Filme, Episodio, Usuario
+from Primeflix.models import Genero, Serie, Titulo, Filme, Episodio, Usuario, Possui
 from django.http import request, HttpResponse
 from django.shortcuts import render, redirect
 from django.contrib.auth.models import User
 from django.contrib.auth import authenticate, login
 from django.contrib import messages
-from ptimeflixplus.forms import EpisodioForm, FilmeForm, SerieForm, UsuarioForm
+from ptimeflixplus.forms import EpisodioForm, FilmeForm, GeneroForm, PossuiForm, SerieForm, UsuarioForm
 from django.core.paginator import Paginator
 
 def loginUsuario(request):
@@ -26,22 +26,36 @@ def addFilme(request):
     data = {}
     if request.method == 'POST':
         formFilme = FilmeForm(request.POST)
-        formFilme.save()
+        formPossui =  PossuiForm(request.POST)
+        filme = formFilme.save()
+        teste = formPossui.save(commit=False)
+        teste.fk_titulo = filme
+        teste.save()
         return redirect('main')
     else:
         formFilme = FilmeForm()
+        formPossui = PossuiForm()
+    data['formposs'] = formPossui
     data['form'] = formFilme
+    data['genero'] = Genero.objects.all()
     return render(request, "adfilme.html", data)
 
 def addSerie(request):
     data = {}
     if request.method == 'POST':
         formSerie = SerieForm(request.POST)
-        formSerie.save()
+        formPossui = PossuiForm(request.POST)
+        serie = formSerie.save()
+        teste = formPossui.save(commit=False)
+        teste.fk_titulo = serie
+        teste.save()
         return redirect('main')
     else:
         formSerie = SerieForm()
+        formPossui = PossuiForm()
     data['form'] = formSerie
+    data['formposs'] = formPossui
+    data['genero'] = Genero.objects.all()
     return render(request, "adserie.html", data)
 
 def series(request):
@@ -79,9 +93,15 @@ def viewTitulo(request, pk):
         paginator = Paginator(allep, 3)
         pages=request.GET.get('page')
         data['dbepisode'] = paginator.get_page(pages)
+        possui = Possui.objects.get(fk_titulo=pk)
+        possui2 = possui.fk_genero
+        data['genero'] = Genero.objects.get(idgenero = getattr(possui2, 'idgenero'))
         return render(request, 'viewTituloSerie.html', data)
     else:
         data['dbfilme'] = Filme.objects.get(titulo_ptr_id=pk)
+        possui = Possui.objects.get(fk_titulo=pk)
+        possui2 = possui.fk_genero
+        data['genero'] = Genero.objects.get(idgenero = getattr(possui2, 'idgenero'))
         return render(request, 'viewTituloFilme.html', data)
     
 
@@ -97,6 +117,10 @@ def update(request,pk):
                 return redirect('verTitulos')
         else:
             titulo['dbs'] = SerieForm(instance = titulo['db'])
+        titulo['genero'] = Genero.objects.all()
+        possui = Possui.objects.get(fk_titulo=pk)
+        possui2 = possui.fk_genero
+        titulo['genero2'] = Genero.objects.get(idgenero = getattr(possui2, 'idgenero'))
         return render(request, 'adserie.html', titulo)
     else:
         titulo['db2'] = Filme.objects.get(titulo_ptr_id=pk)
@@ -107,6 +131,10 @@ def update(request,pk):
                 return redirect('verTitulos')
         else:  
             titulo['dbs'] = FilmeForm(instance=titulo['db'])
+        titulo['genero'] = Genero.objects.all()
+        possui = Possui.objects.get(fk_titulo=pk)
+        possui2 = possui.fk_genero
+        titulo['genero2'] = Genero.objects.get(idgenero = getattr(possui2, 'idgenero'))
         return render(request, 'adfilme.html', titulo)   
     
 def updateEp(request,pk,fk):
@@ -147,3 +175,14 @@ def cadUsuario(request):
     data['form'] = user
     return render(request, "telaCadastro.html", data)
 
+def cadGenero(request):
+    data = {}
+    if request.method == "POST":
+        genero = GeneroForm(request.POST)
+        if  genero.is_valid():
+            genero.save()
+            return redirect("main")
+    else:
+         genero = UsuarioForm()
+    data['form'] =  genero
+    return render(request, "cadgenero.html", data)

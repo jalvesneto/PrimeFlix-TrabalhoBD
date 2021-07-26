@@ -29,8 +29,21 @@
       <input type="number" id="anofim" name="anofim" placeholder="Ano de Finalização" value="{{db2.anofim}}">
       <input type="number" id="temporada" name="num_temporada" placeholder="Temporadas" value="{{db2.num_temporada}}">
       <textarea class="msg" cols="20" rows="8" id="sinopse" name="sinopse" placeholder="Sinopse" width:500px>{{db.sinopse}}</textarea>
+      
+      <input type="hidden" id="titulo" name="fk_titulo" value="1">
+
+      <select id="genero" name="fk_genero">
+        {% for dbs in genero %}
+        {% if dbs.genero == genero2.genero %}
+        <option selected value="{{dbs.idgenero}}">{{dbs.genero}}</option>
+        {% else %}
+        <option value="{{dbs.idgenero}}">{{dbs.genero}}</option>
+        {% endif %}
+        {% endfor %}
+      </select>
+      
       <input type="submit"  id = "add" value="Adicionar">
-      </div>  
+      </div>
       </form>
     </main>
     <a href="/main"><button id="B1"  style="width:80; margin-top:20px;"> Voltar </button></a>

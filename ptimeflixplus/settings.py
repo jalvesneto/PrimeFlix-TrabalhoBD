@@ -81,7 +81,7 @@ DATABASES = {
         'NAME': 'netprime',
         'USER': 'postgres',
         'PASSWORD': 'postgres',
-        'HOST': 'localhost',
+        'HOST': 'database-1.cvn1risxno8p.us-east-1.rds.amazonaws.com',
         'PORT': '5432',
     }
 }
