@@ -1,3 +1,4 @@
+from typing import Tuple
 from django.db import models
 
 class Titulo(models.Model):
@@ -22,7 +23,7 @@ class Possui(models.Model):
     fk_genero = models.ForeignKey('Genero', db_column='idgenero', on_delete=models.CASCADE)
 
 class Serie(Titulo):
-    anofim = models.IntegerField( null=True, verbose_name='AnoFim')
+    anofim = models.IntegerField(null=True, blank=True, verbose_name='AnoFim')
     num_temporada = models.IntegerField( null=True, verbose_name='Temporadas')
     
     class Meta:
