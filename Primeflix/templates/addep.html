@@ -25,9 +25,9 @@
       <div class="form-wrapper" id="text-field">
       <input type="hidden" id="fk_serie" name="fk_serie" placeholder="Série" value="{{pk}}{{fk}}">
       <input type="number" id="numero" name="numero" placeholder="Número do Episódio" value="{{ep.numero}}">
-      <input type="text" id="titulo_ep" name="titulo_ep" placeholder="Titulo do Episódio" value="{{ep.titulo_ep}}">
-      <textarea class="msg" cols="20" rows="8" id="sinopse_ep" name="sinopse_ep" placeholder="Sinopse" width:500px>{{ep.sinopse_ep}}</textarea>
-      <input type="number" id="temporada" name="temporada" placeholder="Temporada" value="{{ep.temporada}}">
+      <input type="text" id="titulo_ep" name="titulo_ep" placeholder="Titulo do Episódio" value="{{ep.titulo_ep}} "maxlength="60">
+      <textarea class="msg" cols="20" rows="8" id="sinopse_ep" name="sinopse_ep" placeholder="Sinopse" width:500px maxlength="1000">{{ep.sinopse_ep}}</textarea>
+      <input type="number" id="temporada" name="temporada" placeholder="Temporada" value="{{ep.temporada}}" >
       
       <input type="submit"  id="add " value="Adicionar">
       </div>   

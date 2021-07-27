@@ -24,11 +24,11 @@
       <form method="POST" enctype="multipart/form-data"  > 
         {% csrf_token %}
       <div class="form-wrapper" id="text-field">
-      <input type="text" id="titulo" name="titulo" placeholder="Nome da Série" value="{{db.titulo}}">
-      <input type="number" id="ano" name="ano" placeholder="Ano de Lançamento" value="{{db.ano}}">
-      <input type="number" id="anofim" name="anofim" placeholder="Ano de Finalização" value="{{db2.anofim}}">
+      <input type="text" id="titulo" name="titulo" placeholder="Nome da Série" value="{{db.titulo}}" maxlength="60">
+      <input type="number" id="ano" name="ano" placeholder="Ano de Lançamento" value="{{db.ano}}" maxlength="4">
+      <input type="number" id="anofim" name="anofim" placeholder="Ano de Finalização" value="{{db2.anofim}}" maxlength="4">
       <input type="number" id="temporada" name="num_temporada" placeholder="Temporadas" value="{{db2.num_temporada}}">
-      <textarea class="msg" cols="20" rows="8" id="sinopse" name="sinopse" placeholder="Sinopse" width:500px>{{db.sinopse}}</textarea>
+      <textarea class="msg" cols="20" rows="8" id="sinopse" name="sinopse" placeholder="Sinopse" width:500px maxlength="1000">{{db.sinopse}}</textarea>
       
       <input type="hidden" id="titulo" name="fk_titulo" value="1">
 

@@ -25,10 +25,10 @@
         {% csrf_token %}
   
       <div class="form-wrapper" id="text-field">
-      <input type="text" id="titulo" name="titulo" placeholder="Nome do Filme" value="{{db.titulo}}">
-      <input type="number" id="ano" name="ano" placeholder="Ano" value="{{db.ano}}">
+      <input type="text" id="titulo" name="titulo" placeholder="Nome do Filme" value="{{db.titulo}}" maxlength="60">
+      <input type="number" id="ano" name="ano" placeholder="Ano" value="{{db.ano}}" maxlength="4">
       <input type="date" id="datalancamento" name="datalancamento" placeholder="Data de Lançamento" value="{{db2.datalancamento}}">
-      <textarea class="msg" cols="20" rows="8"  id="sinopse" name="sinopse" placeholder="Sinopse" >{{db.sinopse}}</textarea>
+      <textarea class="msg" cols="20" rows="8"  id="sinopse" name="sinopse" placeholder="Sinopse" maxlength="1000">{{db.sinopse}}</textarea>
       
       <input type="hidden" id="titulo" name="fk_titulo" value="1">
       
