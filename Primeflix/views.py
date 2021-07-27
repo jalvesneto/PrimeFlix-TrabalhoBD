@@ -110,29 +110,38 @@ def update(request,pk):
     titulo['db'] = Titulo.objects.get(idtitulo=pk)
     if Serie.objects.filter(titulo_ptr_id=pk).exists():
         titulo['db2'] = Serie.objects.get(titulo_ptr_id=pk)
+        possui = Possui.objects.get(fk_titulo=pk)
         if request.method == "POST":          
             form = SerieForm(request.POST or None, instance=titulo['db2'])
+            formPossui = PossuiForm(request.POST or None, instance=possui)
             if form.is_valid:
-                form.save()
+                serie = form.save()
+                teste = formPossui.save(commit=False)
+                teste.fk_titulo = serie
+                teste.save()
                 return redirect('verTitulos')
         else:
             titulo['dbs'] = SerieForm(instance = titulo['db'])
         titulo['genero'] = Genero.objects.all()
-        possui = Possui.objects.get(fk_titulo=pk)
+        
         possui2 = possui.fk_genero
         titulo['genero2'] = Genero.objects.get(idgenero = getattr(possui2, 'idgenero'))
         return render(request, 'adserie.html', titulo)
     else:
         titulo['db2'] = Filme.objects.get(titulo_ptr_id=pk)
+        possui = Possui.objects.get(fk_titulo=pk)
         if request.method == "POST":
             form = FilmeForm(request.POST or None, instance=titulo['db2'])
+            formPossui = PossuiForm(request.POST or None, instance=possui)
             if form.is_valid:
-                form.save()
+                filme = form.save()
+                teste = formPossui.save(commit=False)
+                teste.fk_titulo = filme
+                teste.save()
                 return redirect('verTitulos')
         else:  
             titulo['dbs'] = FilmeForm(instance=titulo['db'])
         titulo['genero'] = Genero.objects.all()
-        possui = Possui.objects.get(fk_titulo=pk)
         possui2 = possui.fk_genero
         titulo['genero2'] = Genero.objects.get(idgenero = getattr(possui2, 'idgenero'))
         return render(request, 'adfilme.html', titulo)   
